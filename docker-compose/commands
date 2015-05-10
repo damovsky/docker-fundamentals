@@ -1,0 +1,16 @@
+
+# run mysql
+docker run --name mojedb -e MYSQL_ROOT_PASSWORD=abc -d mysql
+
+# run adminer
+docker run -t --link mojedb:db -p 80:80 damovsky/phpadminer
+
+
+# open web and check results
+
+# now install docker compose
+
+https://docs.docker.com/compose/install/
+
+docker-compose up
+# open browser and connect to db "db" with password "abc"

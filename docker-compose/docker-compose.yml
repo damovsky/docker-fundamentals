@@ -1,0 +1,12 @@
+adminer:
+  image: damovsky/phpadminer
+  links:
+   - db
+  ports:
+   - "80:80"
+db:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=abc
+  ports:
+    - "3306:3306"

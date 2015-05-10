@@ -1,0 +1,4 @@
+docker run hello-world
+docker run –it debian:wheezy bash
+
+

@@ -1,0 +1,20 @@
+docker build -t damovsky/phpadminer .
+
+
+# create repo at github
+
+# init repo
+echo "# phpadminer" >> README.md
+git init
+git add README.md
+git add Dockerfile
+git commit -m "first commit"
+git remote add origin https://github.com/damovsky/phpadminer.git
+
+# push dockerfile to github
+git push -u origin master
+
+#check dockerfile at github
+
+# create repo at https://hub.docker.com/
+# make automated build

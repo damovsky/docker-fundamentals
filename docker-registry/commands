@@ -1,0 +1,2 @@
+# create docker machine
+docker-machine create --driver digitalocean --digitalocean-access-token 0788416ac682f9abb1d5f0b24b0621d0ac2c5a477d5922407b57b55c8c7843af registrycloud

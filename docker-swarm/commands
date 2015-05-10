@@ -1,0 +1,45 @@
+
+docker-machine create --driver virtualbox dev
+eval "$(docker-machine env dev)"
+docker run swarm create
+# save cluster id 26e51911b9ec128f00369371bd6ce6e5
+
+# create swarm master
+docker-machine create \
+     --driver virtualbox \
+     --swarm \
+     --swarm-master \
+     --swarm-discovery token://26e51911b9ec128f00369371bd6ce6e5 swarmmaster
+
+# create swarm node
+docker-machine create \
+     --driver virtualbox \
+     --swarm \
+     --swarm-discovery token://26e51911b9ec128f00369371bd6ce6e5 \
+     swarm-node-00
+
+eval $(docker-machine env --swarm swarm-master)
+docker-machine env --swarm swarmmaster
+# set up variables (see output of export commands)
+
+docker info
+
+# run mysql on some cluster
+docker run -d -P -m 1G --name db mysql
+
+docker info
+
+# run nginx
+docker run -d -P -m 500m --name frontend nginx
+
+# try to run another container
+docker run -d -P -m 1G --name frontend1 nginx
+
+
+# run another docker machine in cloud
+docker-machine create \
+     --driver digitalocean  \
+     --digitalocean-access-token 0788416ac682f9abb1d5f0b24b0621d0ac2c5a477d5922407b57b55c8c7843af \
+     --swarm \
+     --swarm-discovery token://26e51911b9ec128f00369371bd6ce6e5 \
+     swarm-node-01-digital-cloud

@@ -1,0 +1,18 @@
+# installation
+
+sudo curl -L https://github.com/docker/machine/releases/download/v0.2.0/docker-machine_darwin-amd64 > /usr/local/bin/docker-machine
+sudo chmod +x /usr/local/bin/docker-machine
+
+docker-machine -v
+
+
+docker-machine create --driver digitalocean --digitalocean-access-token TOKEN name
+
+damovsky
+0788416ac682f9abb1d5f0b24b0621d0ac2c5a477d5922407b57b55c8c7843af
+
+beloch
+2a5e65e2903e640d981d3d863c6ab810cb5253ccad5a95581593a8c4806dce3f
+
+mikeska
+e3fafb94b7f85a6128c8acae6538024d5e3f0496156baa45f090c1190708bb0f
